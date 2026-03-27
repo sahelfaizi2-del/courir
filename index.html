@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>System Security Check</title>
+<style>
+    body {
+        background-color: #0d1117;
+        color: #58a6ff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 100px;
+    }
+    #container {
+        border: 1px solid #30363d;
+        padding: 30px;
+        display: inline-block;
+        background-color: #161b22;
+        border-radius: 10px;
+    }
+    #progressBar {
+        width: 100%;
+        background-color: #30363d;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    #bar {
+        width: 0%;
+        height: 20px;
+        background-color: #238636;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <h2>🔐 System Security Analysis</h2>
+    <p id="status">Initializing scan...</p>
+
+    <div id="progressBar">
+        <div id="bar"></div>
+    </div>
+
+    <p id="percent">0%</p>
+</div>
+
+<script>
+let progress = 0;
+
+function update() {
+    if (progress < 100) {
+        progress += Math.random() * 8;
+        if (progress > 100) progress = 100;
+
+        document.getElementById("bar").style.width = progress + "%";
+        document.getElementById("percent").innerText = Math.floor(progress) + "%";
+
+        setTimeout(update, 400);
+    } else {
+        setTimeout(() => {
+            document.getElementById("container").innerHTML = `
+                <h1>😂 Gotcha !</h1>
+                <p>Relax, aucun hack 😎</p>
+                <p>Mais t’as paniqué avoue 👀</p>
+            `;
+        }, 1000);
+    }
+}
+
+update();
+</script>
+
+</body>
+</html>
