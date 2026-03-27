@@ -9,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PGWLNCSZ');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
-<title>SAHEL</title>
+<title>SAHEL Cyber Security</title>
 
 <style>
 body {
@@ -18,51 +18,57 @@ body {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     margin: 0;
-    font-family: Arial;
-    background: #0a0f1c;
+    font-family: 'Segoe UI', sans-serif;
+    background: #020617;
     color: white;
+    overflow-x: hidden;
 }
 
+/* HEADER */
 header {
-    background: #111827;
     padding: 20px;
     text-align: center;
     font-size: 28px;
     color: #00ffc3;
+    border-bottom: 1px solid #111;
 }
 
+/* NAV */
 nav {
     text-align: center;
     padding: 10px;
-    background: #020617;
 }
-
 nav a {
-    margin: 0 15px;
+    margin: 0 20px;
     color: white;
     text-decoration: none;
 }
-
 nav a:hover {
     color: #00ffc3;
 }
 
+/* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 60px;
+    background: linear-gradient(90deg,#00ffc3,#00aaff);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 button {
-    padding: 12px 20px;
+    padding: 15px 25px;
     background: #00ffc3;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
+/* CARDS */
 .container {
     display: flex;
     justify-content: center;
@@ -72,18 +78,34 @@ button {
 }
 
 .card {
-    background: #111827;
+    background: #0f172a;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     width: 250px;
+    transition: 0.3s;
 }
-</style>
+.card:hover {
+    transform: translateY(-10px);
+}
 
+/* TERMINAL */
+.terminal {
+    background: black;
+    color: #00ff00;
+    padding: 20px;
+    margin: 40px;
+    height: 200px;
+    overflow-y: auto;
+    border-radius: 10px;
+    font-family: monospace;
+}
+
+</style>
 </head>
 
 <body>
 
-<header>SAHEL</header>
+<header>🔐 SAHEL SECURITY</header>
 
 <nav>
 <a href="index.html">Accueil</a>
@@ -92,27 +114,45 @@ button {
 </nav>
 
 <section class="hero">
-<h1>Bienvenue chez SAHEL</h1>
-<p>Innovation • Sécurité • Technologie</p>
-
-<button onclick="scan()">Lancer analyse</button>
-<p id="result"></p>
+<h1>SAHEL</h1>
+<p>Cyber sécurité nouvelle génération</p>
+<button onclick="startScan()">Analyser le système</button>
 </section>
 
 <div class="container">
-<div class="card">🔐 Cybersécurité avancée</div>
-<div class="card">🌐 Réseaux sécurisés</div>
-<div class="card">⚡ Solutions rapides</div>
+<div class="card">🛡️ Protection avancée</div>
+<div class="card">🌐 Réseau sécurisé</div>
+<div class="card">⚡ Détection rapide</div>
+</div>
+
+<div class="terminal" id="terminal">
+> Initialisation...
 </div>
 
 <script>
-function scan() {
-    let result = document.getElementById("result");
-    result.innerText = "Analyse en cours...";
+function startScan() {
+    const term = document.getElementById("terminal");
 
-    setTimeout(() => {
-        result.innerText = "✔ Système sécurisé";
-    }, 2000);
+    let logs = [
+        "Scan des ports...",
+        "Analyse du trafic réseau...",
+        "Détection intrusion...",
+        "Vérification système...",
+        "✔ Système sécurisé"
+    ];
+
+    let i = 0;
+
+    function loop() {
+        if(i < logs.length){
+            term.innerHTML += "<br>> " + logs[i];
+            term.scrollTop = term.scrollHeight;
+            i++;
+            setTimeout(loop, 700);
+        }
+    }
+
+    loop();
 }
 </script>
 
